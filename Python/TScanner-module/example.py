@@ -1,8 +1,11 @@
 
 import tscanner
+import time
 
 def main():
 	ip = '192.168.1.1'	# wireless router
+	#ip = tscanner.dns('some.website.com')
+	
 	ports = [20,21,22,23,25,53,80,443]
 
 	scanner = tscanner.TScanner(ip)
@@ -17,7 +20,10 @@ def main():
 	print "Sending packets..." 
 	for i in range(len(ports)):
 		scanner.send(ports[i])
-
+	
+	# let it sniff
+	time.sleep(5)
+	
 	sniffer.stop()
 
 	control = True
@@ -44,5 +50,4 @@ def main():
 	del sniffer
 
 if __name__ == '__main__':
-	print("Do stuff")
 	main()

@@ -36,3 +36,14 @@ class TSniffer
 
 tscanner methods
 	dns(hostname) - converts a hostname to a dot notation IP address
+
+
+build with 
+$ python setup.py build
+move to build/lib.something/
+run python from there
+scan and sniff
+
+install with
+$ python setup.py install
+use from anywhere

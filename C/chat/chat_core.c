@@ -1,5 +1,9 @@
 /*
  Core file for terminal chat
+ 
+ Copyright 2017 Tiago Teixeira
+ Distributed under the terms of the GNU General Public License
+ See <http://www.gnu.org/licenses/> for more info
 */
 #include <stdio.h>
 #include <string.h>

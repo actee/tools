@@ -1,5 +1,8 @@
 /*
  Services and Cracks Creation
+ 
+ Copyright 2017 Tiago Teixeira
+ This file is part of hgameOS
 */
 #include <stdio.h>
 #include <stdlib.h>

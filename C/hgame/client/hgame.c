@@ -1,5 +1,8 @@
 /*
  Main file for hgame
+ 
+ Copyright 2017 Tiago Teixeira
+ This file is part of hgameOS
 */
 #include <stdio.h>
 #include <string.h>

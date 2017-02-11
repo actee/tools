@@ -1,5 +1,8 @@
 /*
  Functions and structs declarations
+ 
+ Copyright 2017 Tiago Teixeira
+ This file is part of hgameOS
 */
 #include <sys/socket.h>
 #include <stdlib.h>

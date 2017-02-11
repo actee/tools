@@ -1,0 +1,105 @@
+hgameOS documentation
+
+
+-------- COMPILATION --------
+
+!!!!!!	before you compile, go to 'header.h'
+!!!!!!	and change the #define SERVER 'value' to the IP where the server is running
+!!!!!!	(probably) 95.95.11.115
+
+to compile, just go to the hgame directory and type
+./conf
+
+that will compile the game and put the output on your local bin folder (dont use sudo)
+you may need to restart the shell (close and open again) so you can use that folder, that folder '$HOME/bin' is added 
+to the beggining of the $PATH variable so you can run the commands on that folder without using '/path/to/command/cmd'
+then just run 'hgameOS'
+
+enter username and password
+
+
+-------- BASICS -------
+commands:
+	commands are the basic linux commands
+	help	-	lists all commands
+	ls	- list files
+	active	- list active services (FTP/SSH)
+	rm	- rm <fname> removes file
+	clear	- clears screen (system call)
+	connect	- connect <ip> links to the ip, to do scanning, fuzzing and cracking
+	scan/nmap	- port scan on linked ip (up)
+	fuzz	- fuzz <port> (21/22) fuzzes the port and sees the output
+	logout	- disconnects from host, to localhost or unlinks from 'connect'ed ip
+	poweroff	- powers off the game, safer than CTRL+C
+	create	- goes to software interactive creation menu
+	start	- start <fname> starts service with name 'fname' on connected machine, localhost if disconnected
+	kill	- kill <fname> kills service blah blah same as stated up
+	upload	- or 'ul' <fname> uploads from localhost to connected machine
+	download - or 'dl' <fname> downloads from connected machine to localhost
+
+-------- CRACKING AND SOFTWARE --------
+there are 6 available exploits:
+	Denial of service ( d )
+	code Injection ( i )
+	Buffer overflow ( b )
+	Spoofing	( s )
+	Man in the middle atk ( m )
+	Elevation of provileges ( e )
+
+a cracker has the 3 exploit combination that is a key to a service that is vulnerable to that combination
+
+
+
+--	the FUZZING ( fuzz <port> )
+fuzzes the service running on <port> on linked/connected machine
+output will be 8 chars combination each fuzz
+in the output there is the combination that is the 'key' to that service
+
+Example:
+if a service is vulnerable to:
+	Buffer overflow
+	Spoofing
+	code Injection
+
+fuzz outpus could be something like
+
+fbghstyi
+juibstit
+possbiki
+
+you are expected to detect the key based on that output
+
+taking a closer look:
+fBghStyI
+juiBStIt
+poSsBIki
+
+you can see the combination BSI keeps there
+in that way, the key is [B]uffer overflow, [S]poofing and code [I]njection ( see the letter i used upthere? )
+
+--	the CRACKING
+
+Im not going to cover the software creation tool, once you go there, it is pretty self-explanatory
+
+for cracking, imagine you have a cracker named FTPSuperCracker
+you just type 'FTPSuperCracker' as a command and it executes the cracker
+for cracking and connecting to a service ( for example SSH )
+you must have aswell a service running on that port ( 22 / SSH )
+(FTP goes the same way)
+
+port specification is not necessary
+
+--	the CRACKING ON THE GO
+
+the 'crack' command
+usage: crack <port> <'key'>
+where the port is 21 / 22 ( FTP / SSH )
+and the key is represented by 3 chars ( each one representing one type of exploit )
+
+for example
+'crack 21 bsc'
+for cracking a FTP service with the exploits: [B]uffer overflow, [S]poofing and code [I]njection
+
+
+I think that covers all
+hacky hunting

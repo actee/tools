@@ -1,0 +1,102 @@
+Protocols for hgameOS client/server communication
+(indented with 8 (space) tabs)
+
+Main header
+	
+	char	- option
+	rest_of_header
+
+Authenticate	option 0 (zero)
+	Request
+	charx16	- username
+	charx16 - password
+	Response
+	char	- ok (1/0)
+	int	- own ip
+
+Commands	option 1
+	Request
+	char	- command op code
+	int	- own ip
+	int	- cur ip
+	[char*	- message]
+	Response
+	char	- ok (1/0)
+	char*	- message
+
+--Software--
+Recon		option 2
+	Request
+	int	- target ip
+	Response
+	char	- ok (1/0)
+	char	- no of open ports
+	ports
+		char - no port
+		charx16 - name of service
+Cracks		option 3
+	Request
+	int	- own ip
+	int	- target ip
+	charx16	- name of crack
+	Response
+	char	- ok (1/0)
+	[int	- target ip]
+Services	option 4
+	Request
+	char	- option (1 start / 0 kill)
+	int	- ip
+	charx16	- name of service
+	Response
+	char	- ok (1/0)
+Down/Upload	option 5
+	Request
+	int	- source ip
+	int	- dest ip
+	charx16	- name
+	Response
+	char	- ok (1/0)
+Create Software	option 6
+	Request
+	int	- ip
+	char	- service/cracker
+	char	- port
+	lines x3
+	   ->	char	- option (dos/sqlinj/bof/...)
+	charx16	- name
+	Response
+	char	- ok (1/0)
+--Other--
+Check file exists	option 10
+	Request
+	int	- own ip
+	charx16	- file name
+	Response
+	char	- ok(1/0)
+
+
+--------Command List--------
+0	Error
+1	Connect
+2	Logout
+3	PowerOff
+4	Help
+5	Clear
+6	Ls
+7	Nmap/Scan
+8	Create software
+10	Start
+11	Kill
+12	Upload
+13	Download
+14	Rm
+16	Exec
+17	Fuzz
+
+--------Exploits--------
+31	DOS	d	denial of service
+32	INJ	i	code injection
+33	BOF	b	buffer overflow
+34	SPOOF	s	spoofing
+35	MITM	m	man in the middle
+36	EOP	e	elevation of provileges

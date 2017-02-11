@@ -1,0 +1,15 @@
+#!/bin/bash
+DIRECTORY=$HOME/bin
+echo "Compiling into local bin folder"
+if [ -d "$DIRECTORY" ];
+then
+echo "Local bin exists"
+else
+echo "Creating bin folder"
+echo "Restart the shell to activate its powers"
+mkdir $DIRECTORY
+fi
+echo "Compiling"
+gcc -Wall hgame.c exec.c parser.c services.c -o $HOME/bin/hgameOS
+echo "Out:"
+echo "$HOME/bin/hgameOS"

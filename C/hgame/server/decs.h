@@ -1,5 +1,8 @@
 /*
  hgame_server.c functions declarations
+ 
+ Copyright 2017 Tiago Teixeira
+ This file is part of hgameOS
 */
 
 #define SERVER	"127.0.0.1"	// loopback debugging, change later

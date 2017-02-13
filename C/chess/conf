@@ -1,0 +1,15 @@
+#!/bin/sh
+DIRECTORY=$HOME/bin
+echo "Compiling to local bin folder"
+if [ -d "$DIRECTORY" ]; then
+	echo "Local bin exists"
+else
+	echo "Creating bin folder"
+	echo "Restart the shell later to activate local bin folder"
+	mkdir $DIRECTORY
+fi
+echo "Compiling"
+gcc -w -Wall chess_core.c chess_ui.c -o $DIRECTORY/chess
+echo "Usage: chess [h|c] <ip> [port]"
+echo "chess h <ip> [port] - for hosting"
+echo "chess c <ip> [port] - for connecting"

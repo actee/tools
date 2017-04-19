@@ -1,4 +1,4 @@
-#TScanner module
+# TScanner module
 
 ### Port scanner module for python, written in C
 

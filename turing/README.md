@@ -39,3 +39,9 @@ These instruction lines should be separated by any white-space characted ( a lin
 Although, there should be no white-spaces in the instructions
 
 There is an example given
+
+---
+
+This is free software, feel free to share it, use it, embed it, idk, no special license applied.
+
+Have fun

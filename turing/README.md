@@ -42,6 +42,10 @@ There is an example given
 
 ---
 
+`download.sh` provides an easy way to download only these files, instead of the whole repository
+
+---
+
 This is free software, feel free to share it, use it, embed it, idk, no special license applied.
 
 Have fun
